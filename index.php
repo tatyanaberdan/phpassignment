@@ -7,18 +7,18 @@ $content = file($filename);
 
 //put content in array
 $array = explode("||", $content[0]);
-$TheSunAlsoRisesbyErnestHemingway = $array[0];
-$MiddlemarchbyGeorgeEliot = $array[1];
+$Hemingway = $array[0];
+$Eliot = $array[1];
 
 if ($vote == 0) {
-  $TheSunAlsoRisesbyErnestHemingway = $TheSunAlsoRisesbyErnestHemingway + 1;
+  $Hemingway = $Hemingway + 1;
 }
 if ($vote == 1) {
-  $MiddlemarchbyGeorgeEliot = $MiddlemarchbyGeorgeEliot + 1;
+  $Eliot = $Eliot + 1;
 }
 
 //insert votes to txt file
-$insertvote = $TheSunAlsoRisesbyErnestHemingway."||".$MiddlemarchbyGeorgeEliot;
+$insertvote = $Hemingway."||".$Eliot;
 $fp = fopen($filename,"w");
 fputs($fp,$insertvote);
 fclose($fp);
@@ -27,21 +27,21 @@ fclose($fp);
 <h2>Result:</h2>
 <table>
 <tr>
-<td>TheSunAlsoRisesbyErnestHemingway:</td>
+<td>Hemingway:</td>
 <td>
 <img src="poll.gif"
-width='<?php echo(100*round($TheSunAlsoRisesbyErnestHemingway/($MiddlemarchbyGeorgeEliot+$TheSunAlsoRisesbyErnestHemingway),2)); ?>'
+width='<?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>'
 height='20'>
-<?php echo(100*round($TheSunAlsoRisesbyErnestHemingway/($MiddlemarchbyGeorgeEliot+$TheSunAlsoRisesbyErnestHemingway),2)); ?>%
+<?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
 <tr>
-<td>MiddlemarchbyGeorgeEliot:</td>
+<td>Eliot:</td>
 <td>
 <img src="poll.gif"
-width='<?php echo(100*round($MiddlemarchbyGeorgeEliot/($MiddlemarchbyGeorgeEliot+$TheSunAlsoRisesbyErnestHemingway),2)); ?>'
+width='<?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>'
 height='20'>
-<?php echo(100*round($MiddlemarchbyGeorgeEliot/($MiddlemarchbyGeorgeEliot+$TheSunAlsoRisesbyErnestHemingway),2)); ?>%
+<?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
 </table>
