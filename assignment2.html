@@ -32,7 +32,7 @@
       <a href="https://twitter.com/tatyanaberdan?lang=en">Follow me on Tiwtter.</a>
     </li>
   </ul>
-  <div class = "gallery" align="center">
+  <div class = "gallery" align = "center">
   <h3> Travel Photos </h3>
     <div class="image" >
       <img src="gallery/Image1.jpg" alt = "image 1" style="width:500px;height:500px;">
@@ -49,9 +49,38 @@
     <div class = "next" align="center">
       <img src="gallery/button_black_rew.png" alt = "backward button" style="width:100px;height:100px;"> 
     </div>
-    <div class = "previous" align= "center">
+    <div class = "previous" align = "center">
       <img src = "gallery/button_black_ffw.png" alt = "forward button" style="width:100px;height:100px;">
     </div>
   </div>
+  <script>
+  // code adapted from w3schools site https://www.w3schools.com/php/php_ajax_poll.asp
+function getVote(int) {
+  if (window.XMLHttpRequest) {
+    xmlhttp=new XMLHttpRequest();
+  } else {  
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("poll").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","index.php?vote="+int,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<div id="poll" align = "center">
+<h3>What book should I read next?</h3>
+<form>
+The Sun Also Rises by Ernest Hemingway:
+<input type="radio" name="vote" value="0" onclick="getVote(this.value)">
+<br>Middlemarch by George Eliot:
+<input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+</form>
+</div>
   </body>
 </html>
