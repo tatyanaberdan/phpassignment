@@ -1,11 +1,11 @@
 <?php
 $vote = $_REQUEST['vote'];
 
-//get content of textfile
+//code modified from w3 school's https://www.w3schools.com/php/php_ajax_poll.asp
+
 $filename = "poll_result.txt";
 $content = file($filename);
 
-//put content in array
 $array = explode("||", $content[0]);
 $Hemingway = $array[0];
 $Eliot = $array[1];
@@ -17,7 +17,6 @@ if ($vote == 1) {
   $Eliot = $Eliot + 1;
 }
 
-//insert votes to txt file
 $insertvote = $Hemingway."||".$Eliot;
 $fp = fopen($filename,"w");
 fputs($fp,$insertvote);
@@ -29,12 +28,14 @@ fclose($fp);
 <tr>
 <td>Hemingway:</td>
 <td>
+<img src="poll.gif" width='<?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>' height='20'>
 <?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
 <tr>
 <td>Eliot:</td>
 <td>
+<img src="poll.gif" width='<?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>' height='20'>
 <?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
