@@ -36,7 +36,7 @@ fclose($fp);
 <td>Eliot:</td>
 <td>
 <img src="poll.gif" width='<?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>' height='20'>
-<?php echo(Thank you!); ?>
+<?php echo(100*round($Eliot/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
 </table>
