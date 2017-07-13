@@ -3,6 +3,8 @@ $vote = $_REQUEST['vote'];
 
 //code modified from w3 school's https://www.w3schools.com/php/php_ajax_poll.asp
 
+chmod("poll_result.txt", 0755);
+
 $filename = "poll_result.txt";
 $content = file($filename);
 
@@ -28,7 +30,7 @@ fclose($fp);
 <tr>
 <td>Hemingway:</td>
 <td>
-<img src="poll.gif" width='<?php echo(100*round($Hemingway/($Eliot+ $Hemingway),2)); ?>' height='20'>
+<img src="poll.gif" width='<?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>' height='20'>
 <?php echo(100*round($Hemingway/($Eliot+$Hemingway),2)); ?>%
 </td>
 </tr>
