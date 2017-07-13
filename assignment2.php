@@ -66,7 +66,7 @@ function getVote(int) {
       document.getElementById("poll").innerHTML=this.responseText;
     }
   }
-  xmlhttp.open("GET","index.php?vote="+int,true);
+  xmlhttp.open("GET","poll_vote.php?vote="+int,true);
   xmlhttp.send();
 }
 </script>
